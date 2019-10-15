@@ -362,6 +362,13 @@ Options for ``--register-aws``
 ``--global``
     Adds AWS specific configuration variables to the global git config.
 
+Options for ``--register-gcp``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``--global``
+    Adds GCP specific configuration variables to the global git config.
+
+
 
 Options for ``--aws-provider``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
