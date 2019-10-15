@@ -20,6 +20,7 @@ Synopsis
     git secrets --add [-a|--allowed] [-l|--literal] [--global] <pattern>
     git secrets --add-provider [--global] <command> [arguments...]
     git secrets --register-aws [--global]
+    git secrets --register-gcp [--global]
     git secrets --aws-provider [<credentials-file>]
 
 
@@ -78,6 +79,7 @@ on each commit::
     cd /path/to/my/repo
     git secrets --install
     git secrets --register-aws
+    git secrets --register-gcp
 
 
 Advanced configuration
@@ -176,6 +178,9 @@ Each of these options must appear first on the command line.
         catch them **all**. ``git-secrets`` should be used as an extra means of
         insurance -- you still need to do your due diligence to ensure that you
         do not commit credentials to a repository.
+        
+``--register-gcp``
+    Secret provider which scans files for Google Cloud Platform's (GCP's) crentials JSON files. 
 
 ``--aws-provider``
     Secret provider that outputs credentials found in an INI file. You can
