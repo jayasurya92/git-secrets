@@ -4,6 +4,7 @@ git-secrets
 
 -------------------------------------------------------------------------------------------
 Prevents you from committing passwords and other sensitive information to a git repository.
+The plugin supports Azure, AWS and GCP Cloud providers
 -------------------------------------------------------------------------------------------
 
 .. contents:: :depth: 2
@@ -80,6 +81,7 @@ on each commit::
     git secrets --install
     git secrets --register-aws
     git secrets --register-gcp
+    git secrets --register-azure
 
 
 Advanced configuration
