@@ -2,10 +2,9 @@
 git-secrets
 ===========
 
--------------------------------------------------------------------------------------------
-Prevents you from committing passwords and other sensitive information to a git repository.
-The plugin supports Azure, AWS and GCP Cloud providers
--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Prevents you from committing passwords and other sensitive information to a git repository, The plugin supports Azure, AWS and GCP Cloud providers
+--------------------------------------------------------------------------------------------------------------------------------------------------
 
 .. contents:: :depth: 2
 
