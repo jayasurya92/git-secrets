@@ -172,13 +172,14 @@ Each of these options must appear first on the command line.
       ``wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY``)
     - Known credentials from ``~/.aws/credentials``
 
-    .. note::
 
-        While the patterns registered by this command should catch most
-        instances of AWS credentials, these patterns are **not** guaranteed to
-        catch them **all**. ``git-secrets`` should be used as an extra means of
-        insurance -- you still need to do your due diligence to ensure that you
-        do not commit credentials to a repository.
+``--register-azure``
+    Adds common AZUE patterns to the git config and ensures that keys and credentials 
+    are not found in any commit. The following checks are added:
+
+    - Azure Tenant/Subscription ID
+    - Azure Management API EndPoints
+    - password and Cert
         
 ``--register-gcp``
     Secret provider which scans files for Google Cloud Platform's (GCP's) crentials JSON files. 
@@ -186,6 +187,15 @@ Each of these options must appear first on the command line.
 ``--aws-provider``
     Secret provider that outputs credentials found in an INI file. You can
     optionally provide the path to an INI file.
+
+Note
+~~~~~~~~~~~~~~~~~~~~~~~~~
+While the patterns registered by this command should catch most
+instances of different provide credentials, these patterns are **not** guaranteed to
+catch them **all**. ``git-secrets`` should be used as an extra means of
+insurance -- you still need to do your due diligence to ensure that you
+do not commit credentials to a repository.
+
 
 
 Options for ``--install``
@@ -369,8 +379,6 @@ Options for ``--register-gcp``
 ``--global``
     Adds GCP specific configuration variables to the global git config.
 
-
-
 Options for ``--aws-provider``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -546,7 +554,6 @@ git hook and allow you to make the commit or merge.
 
 About
 ------
-
 - Author: `Michael Dowling <https://github.com/mtdowling>`_
 - Issue tracker: This project's source code and issue tracker can be found at
   `https://github.com/awslabs/git-secrets <https://github.com/awslabs/git-secrets>`_
