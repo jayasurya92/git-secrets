@@ -2,9 +2,9 @@
 git-secrets
 ===========
 
---------------------------------------------------------------------------------------------------------------------------------------------------
-Prevents you from committing passwords and other sensitive information to a git repository, The plugin supports AWS , GCP and AZURE Cloud providers
---------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+Prevents you from committing passwords and other sensitive information to a git repository.
+-------------------------------------------------------------------------------------------
 
 .. contents:: :depth: 2
 
@@ -21,7 +21,6 @@ Synopsis
     git secrets --add-provider [--global] <command> [arguments...]
     git secrets --register-aws [--global]
     git secrets --register-gcp [--global]
-    git secrets --register-azure [--global]
     git secrets --aws-provider [<credentials-file>]
 
 
@@ -81,7 +80,7 @@ on each commit::
     git secrets --install
     git secrets --register-aws
     git secrets --register-gcp
-    git secrets --register-azure
+
 
 Advanced configuration
 ----------------------
@@ -92,10 +91,6 @@ initialize or clone in the future.
 ::
 
     git secrets --register-aws --global
-or
-::
-
-    git secrets --register-azure --global
 
 
 Add hooks to all your local repositories.
@@ -112,8 +107,10 @@ Add custom providers to scan for security credentials.
 
     git secrets --add-provider -- cat /path/to/secret/file/patterns
 
+
 Before making public a repository
 ---------------------------------
+
 With git-secrets is also possible to scan a repository including all revisions:
 
 ::
@@ -174,14 +171,14 @@ Each of these options must appear first on the command line.
       ``wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY``)
     - Known credentials from ``~/.aws/credentials``
 
-``--register-azure``
-    Adds common AZUE patterns to the git config and ensures that keys and credentials 
-    are not found in any commit. The following checks are added:
+    .. note::
 
-    - Azure Tenant/Subscription ID
-    - Azure Management API EndPoints
-    - password and Cert
-
+        While the patterns registered by this command should catch most
+        instances of AWS credentials, these patterns are **not** guaranteed to
+        catch them **all**. ``git-secrets`` should be used as an extra means of
+        insurance -- you still need to do your due diligence to ensure that you
+        do not commit credentials to a repository.
+        
 ``--register-gcp``
     Secret provider which scans files for Google Cloud Platform's (GCP's) crentials JSON files. 
 
@@ -189,13 +186,6 @@ Each of these options must appear first on the command line.
     Secret provider that outputs credentials found in an INI file. You can
     optionally provide the path to an INI file.
 
-Note
-~~~~~~~~~~~~~~~~~~~~~~~~~
-While the patterns registered by this command should catch most
-instances of different provide credentials, these patterns are **not** guaranteed to
-catch them **all**. ``git-secrets`` should be used as an extra means of
-insurance -- you still need to do your due diligence to ensure that you
-do not commit credentials to a repository.
 
 Options for ``--install``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -378,11 +368,6 @@ Options for ``--register-gcp``
 ``--global``
     Adds GCP specific configuration variables to the global git config.
 
-Options for ``--register-azure``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-``--global``
-    Adds AZURE specific configuration variables to the global git config.
 
 
 Options for ``--aws-provider``
@@ -560,6 +545,7 @@ git hook and allow you to make the commit or merge.
 
 About
 ------
+
 - Author: `Michael Dowling <https://github.com/mtdowling>`_
 - Issue tracker: This project's source code and issue tracker can be found at
   `https://github.com/awslabs/git-secrets <https://github.com/awslabs/git-secrets>`_
