@@ -21,6 +21,7 @@ Synopsis
     git secrets --add-provider [--global] <command> [arguments...]
     git secrets --register-aws [--global]
     git secrets --register-gcp [--global]
+    git secrets --register-azure [--global]
     git secrets --aws-provider [<credentials-file>]
 
 
@@ -79,6 +80,7 @@ on each commit::
     cd /path/to/my/repo
     git secrets --install
     git secrets --register-aws
+    git secrets --register-azure
     git secrets --register-gcp
 
 
@@ -90,7 +92,7 @@ initialize or clone in the future.
 
 ::
 
-    git secrets --register-aws --global
+    git secrets --register-(aws/azure/gcp) --global
 
 
 Add hooks to all your local repositories.
@@ -181,6 +183,10 @@ Each of these options must appear first on the command line.
         
 ``--register-gcp``
     Secret provider which scans files for Google Cloud Platform's (GCP's) crentials JSON files. 
+
+``--register-azure``
+    Secret provider which scans files for AZURE credentials 
+
 
 ``--aws-provider``
     Secret provider that outputs credentials found in an INI file. You can
@@ -368,7 +374,11 @@ Options for ``--register-gcp``
 ``--global``
     Adds GCP specific configuration variables to the global git config.
 
+Options for ``--register-azure``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+``--global``
+    Adds AZURE specific configuration variables to the global git config.
 
 Options for ``--aws-provider``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
