@@ -112,10 +112,8 @@ Add custom providers to scan for security credentials.
 
     git secrets --add-provider -- cat /path/to/secret/file/patterns
 
-
 Before making public a repository
 ---------------------------------
-
 With git-secrets is also possible to scan a repository including all revisions:
 
 ::
@@ -176,7 +174,6 @@ Each of these options must appear first on the command line.
       ``wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY``)
     - Known credentials from ``~/.aws/credentials``
 
-
 ``--register-azure``
     Adds common AZUE patterns to the git config and ensures that keys and credentials 
     are not found in any commit. The following checks are added:
@@ -185,15 +182,12 @@ Each of these options must appear first on the command line.
     - Azure Management API EndPoints
     - password and Cert
 
-
 ``--register-gcp``
     Secret provider which scans files for Google Cloud Platform's (GCP's) crentials JSON files. 
-
 
 ``--aws-provider``
     Secret provider that outputs credentials found in an INI file. You can
     optionally provide the path to an INI file.
-
 
 Note
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -202,8 +196,6 @@ instances of different provide credentials, these patterns are **not** guarantee
 catch them **all**. ``git-secrets`` should be used as an extra means of
 insurance -- you still need to do your due diligence to ensure that you
 do not commit credentials to a repository.
-
-
 
 Options for ``--install``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
